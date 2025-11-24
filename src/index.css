@@ -1,0 +1,130 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Smooth scroll ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Body with custom background image ===== */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Custom Unsplash background */
+  background: url("https://images.unsplash.com/photo-1762194478408-224bf9f13373?q=80&w=2014&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center fixed;
+  background-size: cover;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+  overflow-x: hidden;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Dark overlay for readability on top of image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+      circle at top,
+      rgba(15, 23, 42, 0.85),
+      rgba(15, 23, 42, 0.4)
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Root wrapper fade-in */
+#root {
+  width: 100%;
+  max-width: 1100px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Remove bullets globally */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Inputs, buttons base */
+input,
+textarea,
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Smooth transitions */
+input,
+textarea,
+button,
+div {
+  transition: 0.2s ease;
+}
+
+/* Global scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Selection */
+::selection {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* Links (if any) */
+a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Root fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Mobile tweaks ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem 0.75rem;
+    align-items: flex-start;
+  }
+
+  #root {
+    max-width: 100%;
+  }
+}
